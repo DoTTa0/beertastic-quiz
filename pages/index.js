@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
 import db from '../db.json';
@@ -8,19 +7,12 @@ import Footer from '../src/components/Footer/index';
 import GitHubCorner from '../src/components/GitHubCorner/index';
 import QuizBackground from '../src/components/QuizBackground/index';
 import QuizLogo from '../src/components/QuizLogo/index';
+import Input from '../src/components/Input';
+import Button from '../src/components/Button';
+import QuizContainer from '../src/components/QuizContainer';
 
-const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
-
-const InputName = styled.input`
+/*
+  const InputName = styled.input`
   display: flex;
   justify-content: flex-start;
   min-height: 40px;
@@ -36,8 +28,8 @@ const InputName = styled.input`
   &::-webkit-input-placeholder {
    color: #fff;
 }
-`;
-
+`; */
+/*
 const ButtonPlay = styled.button`
   width:100%;
   height: auto;
@@ -50,7 +42,13 @@ const ButtonPlay = styled.button`
   font-weight: 555;
   padding:10px;
   border: none;
+  transition:350ms;
+
+  &:disabled{
+    background-color: #f8a054;
+  }
 `;
+*/
 
 export default function Home() {
   const router = useRouter();
@@ -71,16 +69,15 @@ export default function Home() {
             <p>
               {db.description}
             </p>
-            <form onSubmit={function (event) {
+            <form onSubmit={(event) => {
               event.preventDefault();
               router.push(`/quiz?name=${name}`);
             }}
             >
-              <InputName placeholder="Insira seu nome aqui..." value={name} onChange={(event) => setName(event.target.value)} />
-              <ButtonPlay type="submit" disabled={name.length === 0}>
-                {/* eslint-disable-next-line react/jsx-one-expression-per-line */}
-                Jogar { name }
-              </ButtonPlay>
+              <Input name="nomeDoUsuario" placeholder="Insira seu nome aqui..." value={name} onChange={(event) => setName(event.target.value)} />
+              <Button type="submit" disabled={name.length === 0}>
+                {`Jogar ${name}`}
+              </Button>
             </form>
           </Widget.Content>
         </Widget>
