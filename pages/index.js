@@ -64,6 +64,7 @@ export default function Home() {
             <form onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
               router.push(`/quiz?name=${name}`);
+              // eslint-disable-next-line no-console
               console.log('Fazendo uma submissão por meio do react');
             }}
             >
@@ -126,8 +127,8 @@ export default function Home() {
           animate="show"
         />
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/omariosouto" />
+      <GitHubCorner projectUrl="https://github.com/DoTTa0" />
     </QuizBackground>
   );
+  // https://github.com/alura-challenges/aluraquiz-base/blob/main/src/screens/Quiz/index.js#L63
 }
-// https://github.com/alura-challenges/aluraquiz-base/blob/main/src/screens/Quiz/index.js#L63
