@@ -65,7 +65,8 @@
       }
     ],
     "external": [
-      ""
+      "https://aluraquiz-css.omariosouto.vercel.app/",
+      "https://aluraquiz-devsoutinho.omariosouto.vercel.app/"
     ],
     "theme": {
       "colors": {
@@ -79,3 +80,5 @@
       "borderRadius": "4px"
     }
   }
+
+  //https://github.com/alura-challenges/aluraquiz-base/blob/main/src/screens/Quiz/index.js#L63
